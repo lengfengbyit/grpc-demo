@@ -1,4 +1,12 @@
-1. 生成proto文件
+1. 安装protobuf
+```
+brew install protobuf
+```
+2. 安装protoc-gen-go
+```
+go get -u github.com/golang/protobuf/protoc-gen-go
+```
+3. 生成proto文件
 ```
 protoc --go_out=plugins=grpc:. ./proto/*proto
 ```
