@@ -5,7 +5,14 @@ package helloworld;
 option go_package = "/proto";
 
 service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  // 一元RPC
+  rpc SayHello (HelloRequest) returns (HelloReply) {};
+  // 服务端流式RPC
+  rpc SayList (HelloRequest) returns (stream HelloReply) {};
+  // 客户端流式RPC
+  rpc SayRecord(stream HelloRequest) returns (HelloReply) {};
+  // 双向流式RPC
+  rpc SayRoute(stream HelloRequest) returns (stream HelloReply) {};
 }
 
 message HelloRequest {
